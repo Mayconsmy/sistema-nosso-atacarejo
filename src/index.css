@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,11 +14,11 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 142 76% 36%;
+    --primary-foreground: 355.7 100% 97.3%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 60 100% 89%;
+    --secondary-foreground: 60 5% 10%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
@@ -33,22 +34,6 @@
     --ring: 222.2 84% 4.9%;
 
     --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
@@ -79,14 +64,6 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -94,8 +71,64 @@
   * {
     @apply border-border;
   }
-
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
   }
+}
+
+.status-green {
+  @apply text-green-600;
+}
+
+.status-yellow {
+  @apply text-yellow-500;
+}
+
+.status-red {
+  @apply text-red-500;
+}
+
+.card-alert {
+  @apply bg-red-100 border-red-300;
+}
+
+/* CSS Bar Chart */
+.bar-chart {
+  @apply h-64 flex items-end justify-between gap-2 mb-6;
+}
+
+.bar {
+  @apply bg-primary rounded-t-md w-full hover:bg-primary/80 transition-all relative;
+}
+
+.bar-label {
+  @apply absolute -bottom-6 text-xs text-center w-full;
+}
+
+.bar-value {
+  @apply absolute -top-6 text-xs font-medium w-full text-center;
+}
+
+/* CSS Pie Chart */
+.pie-chart {
+  @apply w-64 h-64 rounded-full relative mx-auto my-8;
+  background: conic-gradient(
+    hsl(var(--primary)) 0deg 108deg,
+    hsl(var(--secondary)) 108deg 180deg,
+    #e5e7eb 180deg 252deg,
+    #94a3b8 252deg 360deg
+  );
+}
+
+.pie-chart-legend {
+  @apply grid grid-cols-2 gap-4 mt-4 max-w-xs mx-auto;
+}
+
+.legend-item {
+  @apply flex items-center gap-2;
+}
+
+.legend-color {
+  @apply w-4 h-4 rounded-sm;
 }
