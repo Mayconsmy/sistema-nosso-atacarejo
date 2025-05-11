@@ -6,7 +6,7 @@ const DashboardSidebar = () => {
   return (
     <aside className="bg-gray-50 border-r w-full md:w-64 md:min-h-screen p-4 flex flex-col">
       <div className="mb-8">
-        <h2 className="text-lg font-semibold text-gray-700">Menu</h2>
+        <h2 className="text-lg font-semibold text-primary">Menu</h2>
       </div>
       
       <nav className="flex-1">

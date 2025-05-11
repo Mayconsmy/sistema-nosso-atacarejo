@@ -1,4 +1,5 @@
 
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,11 +15,11 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 142 76% 36%;
-    --primary-foreground: 355.7 100% 97.3%;
+    --primary: 211 77% 35%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 60 100% 89%;
-    --secondary-foreground: 60 5% 10%;
+    --secondary: 49 100% 47%;
+    --secondary-foreground: 210 20% 10%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
@@ -132,3 +133,4 @@
 .legend-color {
   @apply w-4 h-4 rounded-sm;
 }
+
