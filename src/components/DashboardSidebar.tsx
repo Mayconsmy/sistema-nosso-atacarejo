@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { HomeIcon, CalendarIcon, ThermometerIcon, ShoppingCartIcon, PackageIcon } from 'lucide-react';
 
 const DashboardSidebar = () => {
@@ -57,26 +56,8 @@ const DashboardSidebar = () => {
               <span>Desperdício</span>
             </a>
           </li>
-          <li>
-            <Link 
-              to="/reestoque" 
-              className="flex items-center px-4 py-3 text-gray-700 rounded-md bg-primary/10 text-primary transition-colors"
-            >
-              <PackageIcon className="w-5 h-5 mr-3" />
-              <span>Reestoque</span>
-            </Link>
-          </li>
         </ul>
       </nav>
-      
-      <div className="mt-auto pt-4 border-t">
-        <Link 
-          to="/login" 
-          className="flex items-center px-4 py-3 text-gray-700 rounded-md hover:bg-primary/10 hover:text-primary transition-colors"
-        >
-          <span>Acesso ao Reestoque</span>
-        </Link>
-      </div>
     </aside>
   );
 };
