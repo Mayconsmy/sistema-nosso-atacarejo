@@ -3,47 +3,48 @@ import React from 'react';
 import { Check, AlertTriangle, X } from 'lucide-react';
 
 const ValidadeSection = () => {
+  // Dados realistas de produtos próximos da data de validade
   const tableData = [
     { 
-      produto: "Maçã Fuji", 
-      lote: "LT2023-05", 
-      validade: "2025-05-14", 
-      quantidade: 84, 
+      produto: "Iogurte Natural Integral", 
+      lote: "IN2023-42", 
+      validade: "2025-05-14", // 3 dias
+      quantidade: 48, 
       status: "green" 
     },
     { 
-      produto: "Queijo Minas", 
-      lote: "QM2023-15", 
-      validade: "2025-05-14", 
-      quantidade: 22, 
+      produto: "Queijo Minas Frescal", 
+      lote: "QM2023-38", 
+      validade: "2025-05-14", // 3 dias
+      quantidade: 26, 
       status: "green" 
     },
     { 
-      produto: "Iogurte Natural", 
-      lote: "IN2023-08", 
-      validade: "2025-05-13", 
-      quantidade: 45, 
+      produto: "Leite Integral UHT", 
+      lote: "LI2023-65", 
+      validade: "2025-05-13", // 2 dias 
+      quantidade: 72, 
       status: "yellow" 
     },
     { 
-      produto: "Mamão Papaia", 
-      lote: "MP2023-04", 
-      validade: "2025-05-12", 
+      produto: "Pão de Forma Integral", 
+      lote: "PF2023-28", 
+      validade: "2025-05-13", // 2 dias
       quantidade: 18, 
       status: "yellow" 
     },
     { 
-      produto: "Frango Resfriado", 
-      lote: "FR2023-22", 
-      validade: "2025-05-12", 
-      quantidade: 12, 
+      produto: "Presunto Fatiado", 
+      lote: "PR2023-54", 
+      validade: "2025-05-12", // 1 dia
+      quantidade: 14, 
       status: "yellow" 
     },
     { 
-      produto: "Carne Moída", 
-      lote: "CM2023-18", 
-      validade: "2025-05-11", 
-      quantidade: 8, 
+      produto: "Salada Pronta", 
+      lote: "SP2023-37", 
+      validade: "2025-05-11", // hoje
+      quantidade: 10, 
       status: "red" 
     }
   ];
@@ -64,11 +65,11 @@ const ValidadeSection = () => {
   const getStatusLabel = (status: string) => {
     switch(status) {
       case 'green':
-        return <span className="text-xs text-green-600">Normal</span>;
+        return <span className="text-xs text-green-600">Normal (3+ dias)</span>;
       case 'yellow':
-        return <span className="text-xs text-yellow-500">Atenção</span>;
+        return <span className="text-xs text-yellow-500">Atenção (1-2 dias)</span>;
       case 'red':
-        return <span className="text-xs text-red-500">Crítico</span>;
+        return <span className="text-xs text-red-500">Crítico (hoje)</span>;
       default:
         return null;
     }

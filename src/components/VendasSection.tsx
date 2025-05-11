@@ -1,23 +1,28 @@
 
 import React from 'react';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from './ui/chart';
+import { ShoppingCartIcon } from 'lucide-react';
 
 const VendasSection = () => {
+  // Dados realistas de vendas diárias para um supermercado médio
   const chartData = [
-    { name: "Seg", value: 65 },
-    { name: "Ter", value: 78 },
-    { name: "Qua", value: 84 },
-    { name: "Qui", value: 72 },
-    { name: "Sex", value: 90 },
-    { name: "Sab", value: 100 },
-    { name: "Dom", value: 55 },
+    { name: "Seg", value: 28750 },
+    { name: "Ter", value: 23450 },
+    { name: "Qua", value: 31200 },
+    { name: "Qui", value: 26800 },
+    { name: "Sex", value: 38500 },
+    { name: "Sab", value: 47200 },
+    { name: "Dom", value: 19800 },
   ];
 
+  // Produtos mais vendidos em um atacarejo (baseado em estatísticas de mercado)
   const topProducts = [
-    { nome: "Leite Integral 1L", quantidade: 452, valor: "R$ 5.790,00" },
-    { nome: "Arroz 5kg", quantidade: 384, valor: "R$ 8.448,00" },
-    { nome: "Frango Congelado kg", quantidade: 327, valor: "R$ 4.578,00" },
-    { nome: "Banana Prata kg", quantidade: 302, valor: "R$ 1.812,00" },
-    { nome: "Queijo Mussarela kg", quantidade: 278, valor: "R$ 8.340,00" }
+    { nome: "Arroz Branco 5kg", quantidade: 842, valor: "R$ 18.524,00" },
+    { nome: "Feijão Carioca 1kg", quantidade: 765, valor: "R$ 9.180,00" },
+    { nome: "Açúcar Cristal 5kg", quantidade: 632, valor: "R$ 7.584,00" },
+    { nome: "Óleo de Soja 900ml", quantidade: 598, valor: "R$ 5.382,00" },
+    { nome: "Café Torrado 500g", quantidade: 523, valor: "R$ 9.414,00" }
   ];
 
   return (
@@ -28,24 +33,27 @@ const VendasSection = () => {
         <div className="bg-white rounded-lg shadow p-6 border">
           <h3 className="text-lg font-medium mb-4">Faturamento dos Últimos 7 Dias</h3>
           
-          {/* CSS-only Bar Chart */}
-          <div className="bar-chart">
-            {chartData.map((item, index) => (
-              <div key={index} className="flex-1 flex flex-col items-center">
-                <div 
-                  className="bar"
-                  style={{ height: `${item.value}%` }}
-                >
-                  <span className="bar-value">R$ {item.value * 100}</span>
-                  <span className="bar-label">{item.name}</span>
-                </div>
-              </div>
-            ))}
+          <div className="h-64">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 20 }}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" />
+                <YAxis tickFormatter={(value) => `R$ ${value/1000}k`} />
+                <Tooltip 
+                  formatter={(value) => [`R$ ${value.toLocaleString()}`, "Faturamento"]} 
+                  labelFormatter={(label) => `${label}-feira`}
+                />
+                <Bar dataKey="value" fill="#135b9e" radius={[4, 4, 0, 0]} />
+              </BarChart>
+            </ResponsiveContainer>
           </div>
         </div>
 
         <div className="bg-white rounded-lg shadow border overflow-hidden">
-          <h3 className="text-lg font-medium p-6 pb-4">Produtos Mais Vendidos</h3>
+          <h3 className="text-lg font-medium p-6 pb-4 flex items-center gap-2">
+            <ShoppingCartIcon className="h-5 w-5 text-primary" />
+            Produtos Mais Vendidos
+          </h3>
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
