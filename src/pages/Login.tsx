@@ -154,9 +154,19 @@ const Login = () => {
             </TabsContent>
           </Tabs>
         </CardContent>
-        <CardFooter className="flex justify-center">
+        <CardFooter className="flex flex-col items-center space-y-2">
           <p className="text-sm text-gray-500">
             Sistema de Gerenciamento de Reestoque
+          </p>
+          <p className="text-sm text-muted-foreground">
+            Não tem uma conta?{' '}
+            <button 
+              type="button"
+              onClick={() => navigate('/cadastro')}
+              className="text-primary hover:underline"
+            >
+              Cadastre um funcionário
+            </button>
           </p>
         </CardFooter>
       </Card>
